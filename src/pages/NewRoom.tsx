@@ -5,13 +5,31 @@ import googleIconImg from "../assets/images/google-icon.svg";
 
 import '../styles/auth.scss';
 import { Button } from '../components/Button';
-import { useContext } from "react";
+import { FormEvent, useState} from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useAuth } from "../hooks/useAuth";
+import { database } from "../services/firebase";
+
 
 export function NewRoom() {
   const {user} = useAuth();
-  console.log(user);
+  const [newRoom, setNewRoom] = useState('');
+  const handleCreateRoom = async (event: FormEvent) => 
+  {
+    event.preventDefault();
+
+    if(newRoom.trim() === '') {
+      return;
+    }
+
+    const roomRef = database.ref('rooms'); // reference from which database we will add the data 
+
+    const firebaseRoom = await roomRef.push({
+      title: newRoom,
+      authorId: user?.id,
+    }); // push the data to the referenced database;
+  }
+
   return (
     <div id="page-auth">
       <aside>
@@ -25,12 +43,13 @@ export function NewRoom() {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="LetMeAsk" />
-         <h1>{user?.name}</h1>
           <h2>Crie uma nova sala</h2>
-          <form>
+          <form onSubmit={handleCreateRoom}>
             <input 
             type="text" 
             placeholder="Nome da Sala"
+            onChange={event => setNewRoom(event.target.value)}
+            value={newRoom}
             />
             <Button type="submit">
               Criar Sala
