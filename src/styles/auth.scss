@@ -54,6 +54,14 @@ main {
       align-self: center;
     }
 
+    //NewRoom Page Style Area
+    h2
+    {
+      font-size: 24px;
+      margin: 64px 0 24px; 
+      font-family: 'Poppins', sans-serif;
+    }
+
     form {
       input {
         height: 50px;
@@ -69,6 +77,18 @@ main {
       button,
       input {
         width: 100%;
+      }
+    }
+
+    //NewRoom Page Style Area
+
+    p {
+      font-size: 14px;
+      color: #737380;
+      margin-top: 16px;
+
+      a {
+        color: #e559f9;
       }
     }
   }
@@ -87,7 +107,7 @@ main {
     cursor: pointer;
     border: 0;
 
-    transition: filter 0.2s; 
+    transition: filter 0.2s;
     img {
       margin-right: 8px;
     }
