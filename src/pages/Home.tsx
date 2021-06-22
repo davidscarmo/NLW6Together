@@ -1,24 +1,23 @@
-import {auth, firebase} from '../services/firebase';
-import {useHistory} from 'react-router-dom';
+import { useContext } from "react";
+import { AuthContext } from "../App";
+
+import "../styles/auth.scss";
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
 import googleIconImg from "../assets/images/google-icon.svg";
+import { Button } from "../components/Button";
 
-import '../styles/auth.scss';
-import { Button } from '../components/Button';
+import { useHistory } from "react-router-dom";
 
 export function Home() {
+  const { user, signInWithGoogle } = useContext(AuthContext);
   const history = useHistory();
-  const handleCreateRoom = () =>{
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    auth.signInWithPopup(provider).then(result =>{
-      console.log(result);
-      history.push('/rooms/new'); 
-    })
-
-
-  }
+  const handleCreateRoom = async () => {
+    if (!user) {
+      await signInWithGoogle();
+    }
+    history.push("/rooms/new");
+  };
   return (
     <div id="page-auth">
       <aside>
@@ -38,13 +37,8 @@ export function Home() {
           </button>
           <div className="separator">ou entre em uma sala</div>
           <form>
-            <input 
-            type="text" 
-            placeholder="Digite o código da sala"
-            />
-            <Button type="submit">
-              Entrar na sala
-            </Button>
+            <input type="text" placeholder="Digite o código da sala" />
+            <Button type="submit">Entrar na sala</Button>
           </form>
         </div>
       </main>
