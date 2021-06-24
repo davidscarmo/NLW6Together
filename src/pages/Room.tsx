@@ -5,34 +5,11 @@ import { Button } from "../components/Button";
 import { Question } from "../components/Question";
 import { RoomCode } from "../components/RoomCode";
 import { useAuth } from "../hooks/useAuth";
+import { useRoom } from "../hooks/useRoom";
 import { database } from "../services/firebase";
 
 import "../styles/room.scss";
 
-
-//type to match with the data who is returned by the firebase database
-type FirebaseQuestions = Record<string, {
-  author: 
-  {
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isAnswered: boolean;
-  isHighlighted: boolean;
-}>;
-
-type QuestionType = {
-  id: string;
-  author: 
-  {
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isAnswered: boolean;
-  isHighlighted: boolean;
-}
 type RoomParams = {
   id: string;
 };
@@ -40,34 +17,8 @@ export const Room = () => {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState("");
-  const [questions, setQuestions] = useState<QuestionType[]>([]);
-  const [title, setTitle] = useState('');
   const roomId = params.id;
-
-  useEffect(() => {
-    const roomRef = database.ref(`rooms/${roomId}`);
-
-    //get the questions from the  
-    roomRef.on("value", (room) => {
-      const databaseRoom = room.val();
-      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
-      const parsedQuestions = Object.entries(firebaseQuestions).map(([key,value]) =>
-      {
-        return {
-
-          id: key,
-          content: value.content,
-          author: value.author,
-          isHighlighted: value.isHighlighted,
-          isAnswered: value.isAnswered,
-        }
-      });
-     
-      setTitle(databaseRoom.title);
-      setQuestions(parsedQuestions);
-    });
-  }, [roomId]);
-
+  const {questions, title} =  useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -104,7 +55,9 @@ export const Room = () => {
       <main className="main-room">
         <div className="room-title">
           <h1>Room: {title}</h1>
-         { questions.length > 0 &&  <span> {questions.length} pergunta(s) </span>}
+          {questions.length > 0 && (
+            <span> {questions.length} pergunta(s) </span>
+          )}
         </div>
 
         <form onSubmit={handleSendQuestion}>
@@ -130,15 +83,15 @@ export const Room = () => {
             </Button>
           </div>
           <div className="question-list">
-          {questions.map((question) => {
-            return (
-              <Question
-              key={question.id}
-              content={question.content}
-              author={question.author}
-              />
-            )
-          })}
+            {questions.map((question) => {
+              return (
+                <Question
+                  key={question.id}
+                  content={question.content}
+                  author={question.author}
+                />
+              );
+            })}
           </div>
         </form>
       </main>
