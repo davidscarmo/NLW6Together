@@ -2,7 +2,7 @@
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
+  background: #2F80ED;
   color: #fff;
   padding: 0 32px;
 
@@ -20,8 +20,8 @@
 //outlined == true
   &.outlined {
     background: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
+    border: 1px solid #2F80ED;
+    color: #2F80ED;
   }
 
   // when this is not disabled do the hover instruction
