@@ -107,7 +107,10 @@ export const Room = () => {
                 key={question.id}
                 content={question.content}
                 author={question.author}
+                isAnswered={question.isAnswered}
+                isHighlighted={question.isHighlighted}
               >
+                {!question.isAnswered &&
                 <button
                   className={`like-button ${question.likeId ? 'liked' : ''}`}
                   type="button"
@@ -131,6 +134,7 @@ export const Room = () => {
                     />
                   </svg>
                 </button>
+              }
               </Question>
             );
           })}
