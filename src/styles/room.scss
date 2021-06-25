@@ -109,3 +109,66 @@
     }
   }
 }
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  width: 31.25rem;
+  height: 22.625rem;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  > svg path {
+    stroke: #e73f5d;
+  }
+  > svg {
+    width: 48px;
+    height: 48px;
+  }
+  h2 {
+    margin: 1.75rem 0 0.875rem 0;
+  }
+
+  p {
+    color: #C4C4C4;
+  }
+  .confirmArea {
+    display: flex;
+    gap: 16px;
+    height: 3.125rem;
+
+    button {
+      width: 9.2rem;
+      height: 3.125rem;
+      border-radius: 0.5rem;
+      margin-top: 1.75rem;
+      &:first-child {
+        background: #dbdcdd;
+        color: #737380;
+        border: none;
+      }
+
+      &:last-child {
+        background: #e73f5d;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.795);
+}
