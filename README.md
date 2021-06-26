@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# NLW TOGETHER - LETMEASK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação desenvolvidade durante a semana NLW Together (20 a 27 de junho de 2021);
 
-## Available Scripts
+<p align="center">
+  <img src="./src/assets/images/logo.svg" alt="Let Me Ask" width="200" /> 
+</p>
 
-In the project directory, you can run:
+# 💻 Sobre a aplicação
+A LetMeAsk é uma aplicação web que faz a criação de salas para perguntas e apresenta a visão dessas salas do ponto de vista do admin e do usuário. As perguntas criadas são armazenadas no firebase e para a criação das perguntas é necessário realizar uma autenticação com o google.  
 
-### `yarn start`
+# 🚀 Tecnologias Utilizadas
++ <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> ReactJS </a> 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
++ <a href="https://sass-lang.com/" target="_blank"> <img src="https://raw.githubusercontent.com/tkswann2/tech-logos/master/sass.png" alt="sass" width="40" height="40"/> SASS</a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
++ <a href="https://firebase.google.com/" target="_blank"> <img src="https://raw.githubusercontent.com/tkswann2/tech-logos/master/firebase.png" alt="Firebase" width="40" height="40"/> Firebase</a>
 
-### `yarn test`
+# 🎨 Layout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O layout original pode ser acessado <a src="https://www.figma.com/file/D8S1RwNcYFtRz1OPkytB3e/Letmeask-(Copy)?node-id=0%3A1" target="_blank"> aqui.</a>
+## Home - WEB
 
-### `yarn build`
+<img src="./src/assets/readmeImages/homeWeb.png" alt="home" width="800"/> 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Criação de Sala - WEB
+<img src="./src/assets/readmeImages/criacaoDeSalaWeb.png" alt="criação de sala" width="800"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Sala Visão do Admin - WEB
+<img src="./src/assets/readmeImages/salaAdminWeb.png" alt="sala visao admin" width="800"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sala Visão do User - WEB
+<img src="./src/assets/readmeImages/salaViewerWeb.png" alt="sala visao do user" width="800"/>
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Home - Responsivo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="./src/assets/readmeImages/home.png" alt="home" width="150"/> 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Criação de Sala - Responsivo
+<img src="./src/assets/readmeImages/criacaoDeSala.png" alt="criação de sala" width="150"/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Sala Visão do Admin - Responsivo
+<img src="./src/assets/readmeImages/salaAdmin.png" alt="sala visao admin" width="150"/>
 
-## Learn More
+## Sala Visão do User - Responsivo
+<img src="./src/assets/readmeImages/salaViewer.png" alt="sala visao user" width="150"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# ⚙️ Pré - Requisitos e Execução
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+Git, NPM e o VSCode.
+<p>Siga os passos a seguir: </p>  
+
++ Instale as dependências com npm install 
++ Cria o arquivo .env.local e crie as seguintes variáveis ambiente: 
+```env
+REACT_APP_API_KEY = 
+REACT_APP_AUTH_DOMAIN = 
+REACT_APP_DATABASE_URL = 
+REACT_APP_PROJECT_ID =
+REACT_APP_STORAGE_BUCKET = 
+REACT_APP_MESSAGING_SENDER_ID = 
+REACT_APP_APP_ID =
+``` 
++ Crie uma aplicação no firebase e copie os valores correspondentes do SDK para as variáveis.
++ Rode npm start 
+
+# 🔥 Extras 
+
+Foram adicionados alguns implementos na aplicação tendo como comparação a original desenvolvida. 
+<p> Extras: 
+  
+  + Responsividade
+  + Mensagens de erro personalizadas (react-hot-toast)
+  + Adicação de modal (react-modal) de confirmação para exclusão de perguntas  
+  + Alteração das cores do projeto
+ </p>
