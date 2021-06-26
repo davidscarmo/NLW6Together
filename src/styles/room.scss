@@ -1,52 +1,52 @@
 #page-room {
   header {
-    padding: 24px;
+    padding: 1.5rem;
     border-bottom: 1px solid #e2e2e2;
 
     .content {
-      max-width: 1120px;
+      max-width: 70rem;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       > img {
-        max-height: 45px;
+        max-height: 2.8125rem;
       }
       > div {
         display: flex;
-        gap: 16px;
+        gap: 1rem;
 
         button {
-          height: 40px;
+          height: 2.5rem;
         }
       }
     }
   }
 
   .main-room {
-    max-width: 800px;
+    max-width: 50rem;
     margin: 0 auto;
 
     .room-title {
-      margin: 32px 0 24px;
+      margin: 2rem 0 1.5rem;
       display: flex;
       align-items: center;
 
       h1 {
         font-family: "Poppins", sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: #29292e;
       }
 
       span {
-        margin-left: 16px;
-        background: #2D9CDB;
+        margin-left: 1rem;
+        background: #2d9cdb;
         border-radius: 9999px;
-        padding: 8px 16px;
+        padding: 0.5rem 1rem;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
 
@@ -54,49 +54,49 @@
       textarea {
         width: 100%;
         border: 0;
-        padding: 16px;
-        border-radius: 8px;
+        padding: 1rem;
+        border-radius: 0.5rem;
         background: #fefefe;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
-        min-height: 130px;
+        min-height: 8.125rem;
       }
 
       .form-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 16px;
+        margin-top: 1rem;
 
         .user-info {
           display: flex;
           align-items: center;
 
           img {
-            width: 32px;
-            height: 32px;
+            width: 2rem;
+            height: 2rem;
             border-radius: 50%;
           }
 
           span {
-            margin-left: 8px;
+            margin-left: 0.5rem;
             color: #29292e;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 0.875rem;
           }
         }
 
         > span {
-          font-size: 14px;
+          font-size: 0.875rem;
           color: #737380;
           font-weight: 500;
 
           button {
             background: transparent;
             border: 0;
-            color: #2F80ED;
+            color: #2f80ed;
             text-decoration: underline;
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 500;
             cursor: pointer;
           }
@@ -105,7 +105,7 @@
     }
 
     .question-list {
-      margin-top: 32px;
+      margin-top: 2rem;
     }
   }
 }
@@ -129,19 +129,19 @@
     stroke: #e73f5d;
   }
   > svg {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
   }
   h2 {
     margin: 1.75rem 0 0.875rem 0;
   }
 
   p {
-    color: #C4C4C4;
+    color: #c4c4c4;
   }
   .confirmArea {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
     height: 3.125rem;
 
     button {
@@ -171,4 +171,36 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.795);
+}
+
+@media (max-width: 60rem) {
+  #page-room {
+    .content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      > div {
+        flex-direction: column;
+      }
+    }
+
+    .main-room {
+      padding: 0 2rem;
+    }
+  }
+  .Modal
+    {
+      width: 100%;
+      padding: 0 2rem;
+    }
+}
+
+@media (max-width: 23rem)
+{
+  .room-title span {
+    width: 100%;
+    text-align: center;
+  }
 }

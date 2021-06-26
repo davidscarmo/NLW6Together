@@ -1,10 +1,10 @@
 .button {
-  height: 50px;
-  border-radius: 8px;
+  height: 3.125rem;
+  border-radius: 0.5rem;
   font-weight: 500;
-  background: #2F80ED;
+  background: #2f80ed;
   color: #fff;
-  padding: 0 32px;
+  padding: 0 2rem;
 
   display: flex;
   justify-content: center;
@@ -15,13 +15,13 @@
 
   transition: filter 0.2s;
   img {
-    margin-right: 8px;
+    margin-right: 0.5rem;
   }
-//outlined == true
+  //outlined == true
   &.outlined {
     background: #fff;
-    border: 1px solid #2F80ED;
-    color: #2F80ED;
+    border: 1px solid #2f80ed;
+    color: #2f80ed;
   }
 
   // when this is not disabled do the hover instruction

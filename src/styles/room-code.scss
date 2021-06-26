@@ -1,5 +1,5 @@
 .room-code {
-  border-radius: 8px;
+  border-radius: 0.5rem;
 
   background: #fff;
   border: 1px solid #3062DB;
@@ -9,14 +9,14 @@
 
   div {
     background: #3062DB;
-    padding: 0 12px;
+    padding: 0 0.875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 2.5rem;
 
     //it solves the problem with the box that doesn't fit properly in the clipboard button
-    border-radius: 8px 0 0 8px;
+    border-radius: 0.5rem 0 0 0.5rem;
     margin: -1px;
   }
 
@@ -24,9 +24,9 @@
     display: block;
     align-self: center;
     flex: 1;
-    padding: 0 16px 0 12px;
-    width: 240px;
-    font-size: 14px;
+    padding: 0 1rem 0 0.875rem;
+    width: 15rem;
+    font-size: 0.875rem;
     font-weight: 500;
   }
 }

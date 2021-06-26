@@ -14,6 +14,7 @@ import { useRoom } from "../hooks/useRoom";
 import "../styles/room.scss";
 import { database } from "../services/firebase";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 type RoomParams = {
   id: string;
@@ -39,12 +40,13 @@ export const AdminRoom = () => {
     await database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
     });
-
+    toast.success('Sala encerrada!');
     history.push("/");
   };
   const handleDeleteQuestion = async (questionId: string) => {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
     setConfirmationModal(false);
+    toast.success('Pergunta excluída!'); 
   };
 
   const handleCheckQuestionAsAnswered = async (questionId: string) => {
@@ -61,6 +63,7 @@ export const AdminRoom = () => {
 
   return (
     <div id="page-room">
+      <Toaster />
       <header>
         <div className="content">
           <img src={logoImg} alt="LetMeAsk" />

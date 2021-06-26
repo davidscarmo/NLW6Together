@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-
+import toast, { Toaster } from 'react-hot-toast';
 import "../styles/auth.scss";
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
@@ -27,6 +27,7 @@ export function Home() {
 
     if(roomCode.trim() === "")
     {
+      toast.error('Você deve informar o código de uma para poder entrar.')
       return;
     }
     //search for the roomCode in the database
@@ -34,19 +35,20 @@ export function Home() {
     
     if(!roomRef.exists())
     {
-      alert('Room does not exists.');
+      toast.error('A sala informada não existe.');
       return;
     }
 
     if(roomRef.val().endedAt)
     {
-      alert('Room already closed.');
+      toast.error('A sala informada já está fechada.');
       return;
     }
     history.push(`/rooms/${roomCode}`);
   };
   return (
     <div id="page-auth">
+      <Toaster />
       <aside>
         <img
           src={illustrationImg}
