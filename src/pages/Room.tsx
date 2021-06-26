@@ -7,7 +7,7 @@ import { RoomCode } from "../components/RoomCode";
 import { useAuth } from "../hooks/useAuth";
 import { useRoom } from "../hooks/useRoom";
 import { database } from "../services/firebase";
-
+import {useHistory} from 'react-router-dom';
 import "../styles/room.scss";
 
 type RoomParams = {
@@ -60,12 +60,12 @@ export const Room = () => {
     });
   }
   }
-
+  const history = useHistory();
   return (
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="LetMeAsk" />
+          <img src={logoImg} onClick={() => history.push('/')} alt="LetMeAsk" />
           <RoomCode code={roomId} />
         </div>
       </header>

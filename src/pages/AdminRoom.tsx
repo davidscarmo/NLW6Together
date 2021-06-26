@@ -66,7 +66,7 @@ export const AdminRoom = () => {
       <Toaster />
       <header>
         <div className="content">
-          <img src={logoImg} alt="LetMeAsk" />
+          <img src={logoImg} alt="LetMeAsk" onClick={()=>history.push('/')} />
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>

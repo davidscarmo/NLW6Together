@@ -28,7 +28,7 @@ export function NewRoom() {
       authorId: user?.id,
     }); // push the data to the referenced database;
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    history.push(`/admin/rooms/${firebaseRoom.key}`);
   };
 
   return (
@@ -43,7 +43,7 @@ export function NewRoom() {
       </aside>
       <main className="main-auth" >
         <div className="main-content">
-          <img src={logoImg} alt="LetMeAsk" />
+          <img src={logoImg} alt="LetMeAsk" onClick={() => history.push('/')} />
           <h2>Crie uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input
